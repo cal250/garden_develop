@@ -13,6 +13,7 @@ import { GratitonsSection } from './_sections/gratitons-section'
 import { InviteSection } from './_sections/invite-section'
 import { DesignContextProvider } from '@/hooks/use-design-context'
 import { FooterSection } from './_sections/footer-section'
+import Link from 'next/link'
 
 const HomePage: React.FC<HomePageProps> = (props) => {
   return (
@@ -36,17 +37,39 @@ const HomePage: React.FC<HomePageProps> = (props) => {
           },
         }}
         navRightItems={[
-          <FlowerIcon className="h-6 w-6" fill="rgb(var(--color-10))" strokeWidth={2} key="icon-1" />,
-          <FlowerIcon className="h-6 w-6" fill="rgb(var(--color-10))" strokeWidth={2} key="icon-2" />,
+          <FlowerIcon
+            className="h-6 w-6"
+            fill="rgb(var(--color-10))"
+            strokeWidth={2}
+            key="icon-1"
+          />,
+          <FlowerIcon
+            className="h-6 w-6"
+            fill="rgb(var(--color-10))"
+            strokeWidth={2}
+            key="icon-2"
+          />,
         ]}
         navLeftItems={[
-          <FlowerIcon className="h-6 w-6" fill="rgb(var(--color-10))" strokeWidth={2} key="icon-1" />,
-          <FlowerIcon className="h-6 w-6" fill="rgb(var(--color-10))" strokeWidth={2} key="icon-2" />,
+          <FlowerIcon
+            className="h-6 w-6"
+            fill="rgb(var(--color-10))"
+            strokeWidth={2}
+            key="icon-1"
+          />,
+          <FlowerIcon
+            className="h-6 w-6"
+            fill="rgb(var(--color-10))"
+            strokeWidth={2}
+            key="icon-2"
+          />,
         ]}
         navEndItem={
-          <Button variant="bordered" className="text-accent font-bold text-color-2">
-            join us
-          </Button>
+          <Link href="/login">
+            <Button variant="bordered" className="text-accent font-bold text-color-2">
+              join us
+            </Button>
+          </Link>
         }
       >
         <BigBloomSection />
