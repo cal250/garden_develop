@@ -1,0 +1,94 @@
+/* Reset for Tiptap Editor Content */
+.tiptap {
+  /* Reset box model */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 1em;
+  width: 100%;
+  outline: none;
+
+  /* Reset typography */
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: normal;
+  color: black;
+  height: 100%;
+
+  /* Reset spacing */
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Reset headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    line-height: 1.2;
+  }
+
+  /* Reset lists */
+  ul,
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+  }
+
+  li {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Reset links */
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  /* Reset block elements */
+  blockquote {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  /* Reset inline elements */
+  strong,
+  em,
+  code {
+    font-weight: inherit;
+    font-style: inherit;
+  }
+
+  /* Reset tables */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td,
+  th {
+    padding: 0;
+    border: none;
+  }
+
+  /* Reset images */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  p.is-empty::before {
+    content: attr(data-placeholder);
+    color: gray;
+    font-style: italic;
+  }
+}

@@ -1,0 +1,99 @@
+import { Meta } from "@storybook/blocks";
+import tailwindConfig from "../tailwind.config";
+import { CopyButton } from "./components/CopyButton";
+import Color from "color";
+
+<Meta title="Design System/Colors" />
+
+# Colors
+
+This is a list of colors available in our design system.
+They are available both as tailwind classes and CSS Variables.
+
+<div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+  {Object.entries(tailwindConfig.theme.extend.colors.color).map(
+    ([name, color]) => {
+      const colorName = `color-${name}`;
+      return (
+        <div
+          key={name}
+          className="flex items-center space-x-4"
+          style={{
+            padding: "0.5rem",
+            borderRadius: "0.5rem",
+          }}
+        >
+          <div
+            className="flex h-16 w-48 items-center justify-center gap-2 rounded-md"
+            style={{
+              background: color,
+              color:
+                Color(color).contrast(Color("white")) > 2 ? "white" : "black",
+            }}
+          >
+            <span className="text-xs" style={{}}>
+              {color}
+            </span>
+            <CopyButton text={color} />
+          </div>
+          <div className="flex flex-col gap-1">
+            <div className="flex gap-2 text-gray-800">{colorName}</div>
+            <div className="flex gap-2 text-gray-400">
+              <span>var(--{colorName})</span>
+              <CopyButton text={`var(--${colorName})`} />
+            </div>
+          </div>
+        </div>
+      );
+    },
+  )}
+</div>
+
+## Opacity
+
+**Tailwind**
+As per the tailwind documentation, you can use the opacity classes to set the opacity of an element.
+
+```html
+<div className="bg-color-2/50">50% opacity</div>
+```
+
+<div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+  <div className={`bg-color-2/10 flex h-[50px] w-[200px] items-center justify-center text-black`}>10% opacity</div>
+  <div className={`bg-color-2/20 flex h-[50px] w-[200px] items-center justify-center text-black`}>20% opacity</div>
+  <div className={`bg-color-2/30 flex h-[50px] w-[200px] items-center justify-center text-black`}>30% opacity</div>
+  <div className={`bg-color-2/40 flex h-[50px] w-[200px] items-center justify-center text-black`}>40% opacity</div>
+  <div className={`bg-color-2/50 flex h-[50px] w-[200px] items-center justify-center text-black`}>50% opacity</div>
+  <div className={`bg-color-2/60 flex h-[50px] w-[200px] items-center justify-center text-black`}>60% opacity</div>
+  <div className={`bg-color-2/70 flex h-[50px] w-[200px] items-center justify-center text-black`}>70% opacity</div>
+  <div className={`bg-color-2/80 flex h-[50px] w-[200px] items-center justify-center text-black`}>80% opacity</div>
+</div>
+
+
+**CSS Variables**
+The CSS variables are also available in the format `--color-2--{opacity}` where opacity is 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100.
+
+```css
+div {
+  background: var(--color-2--50);
+}
+```
+
+<div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+{
+  Array.from({ length: 8 }).map((_, index) => {
+    const opacity = (index + 1) * 10;
+    return (
+      <div
+        key={index}
+        className={`flex h-[50px] w-[200px] items-center justify-center text-black`}
+        style={{
+          background: `var(--color-2--${opacity})`,
+        }}
+      >
+        {opacity}% opacity
+      </div>
+    );
+  })
+}
+</div>

@@ -1,0 +1,19 @@
+.quote-editor {
+  .tiptap {
+    font-size: inherit;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+
+    p:not(:first-child).is-empty::before {
+      display: none;
+    }
+
+    p:first-child.is-empty::before {
+      color: white;
+      font-size: 30px;
+      font-weight: 700;
+      font-style: normal;
+    }
+  }
+}

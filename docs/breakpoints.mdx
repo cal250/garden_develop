@@ -1,0 +1,63 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Design System/Breakpoints" />
+
+# Breakpoints
+
+The following breakpoints are available in our design system. We use a mobile-first approach.
+
+- `xs` - @media (min-width: 375px)
+- `sm` - @media (min-width: 640px)
+- `md` - @media (min-width: 1024px)
+- `lg` - @media (min-width: 1280px)
+- `xl` - @media (min-width: 1536px)
+
+## Tailwind
+
+The breakpoints are available as tailwind classes.
+
+```html
+<div class="hidden sm:block">This is visible on `sm`, `md`, `lg`, and `xl` breakpoints</div>
+```
+
+
+# Hooks
+
+## useBreakpoints
+
+The `useBreakpoints` hook is available to provide the current breakpoint.
+
+```jsx
+import { useBreakpoints } from "@hooks/use-breakpoint";
+
+const { isXs, isSm, isMd, isLg, isXl } = useBreakpoints();
+```
+
+## useResponsiveValue
+
+The `useResponsiveValue` hook is available to provide a responsive value based on the current breakpoint.
+
+```jsx
+import { useResponsiveValue } from "@hooks/use-responsive-value";
+
+const value = useResponsiveValue({
+  base: "The base value",
+  sm: "tablet value",
+  md: "laptop value",
+  lg: "desktop value",
+  xl: "extra large value",
+});
+```
+
+If a value is not provided for a breakpoint, the value for the next smallest breakpoint will be used.
+
+```jsx
+import { useResponsiveValue } from "@hooks/use-responsive-value";
+
+const value = useResponsiveValue({
+  base: "The base value",
+  lg: "desktop value",
+});
+```
+
+In this example, the `value` will be `"The base value"` for `sm` and `md` breakpoints. It will be `"desktop value"` for `lg` and `xl` breakpoints.
